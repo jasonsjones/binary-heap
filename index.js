@@ -15,8 +15,18 @@
         this.bubbleUp(this.content.length - 1);
     };
 
-    // BinaryHeap.prototype.pop = function () {
-    // };
+    BinaryHeap.prototype.pop = function () {
+        var result = this.content[0];
+
+        var endElement = this.content.pop();
+
+        if (this.content.length > 0) {
+            this.content[0] = endElement;
+            this.sinkDown(0);
+        }
+
+        return result;
+    };
 
     // BinaryHeap.prototype.remove = function (node) {
     // };
@@ -48,8 +58,44 @@
         }
     };
 
-    // BinaryHeap.prototype.sinkDown = function (idx) {
-    // };
+    BinaryHeap.prototype.sinkDown = function (idx) {
+        var length = this.content.length;
+        var element = this.content[idx];
+        var elementScore = this.scoreFunction(element);
+
+        while (true) {
+            var swapIdx = null;
+            var leftChildIdx = 2 * idx + 1;
+            var rightChildIdx = 2 * idx + 2;
+            var leftChildScore;
+
+            if (leftChildIdx < length) {
+                var leftChild = this.content[leftChildIdx];
+                leftChildScore = this.scoreFunction(leftChild);
+
+                if (leftChildScore < elementScore) {
+                    swapIdx = leftChildIdx;
+                }
+            }
+
+            if (rightChildIdx < length) {
+                var rightChild = this.content[rightChildIdx];
+                var rightChildScore = this.scoreFunction(rightChild);
+
+                if (rightChildScore < (swapIdx === null ? elementScore : leftChildScore)) {
+                    swapIdx = rightChildIdx;
+                }
+            }
+
+            if (swapIdx === null) {
+                break;
+            }
+
+            this.content[idx] = this.content[swapIdx];
+            this.content[swapIdx] = element;
+            idx = swapIdx;
+        }
+    };
 
     module.exports = BinaryHeap;
 
