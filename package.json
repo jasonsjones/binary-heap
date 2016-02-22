@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jasonsjones/heap.git"
+    "url": "https://github.com/jasonsjones/binary-heap.git"
   },
   "keywords": [
     "binary heap",
@@ -22,9 +22,9 @@
   "author": "Jason Jones",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jasonsjones/heap/issues"
+    "url": "https://github.com/jasonsjones/binary-heap/issues"
   },
-  "homepage": "https://github.com/jasonsjones/heap",
+  "homepage": "https://github.com/jasonsjones/binary-heap",
   "devDependencies": {
     "chai": "^2.2.0",
     "istanbul": "^0.4.2",
