@@ -1,0 +1,36 @@
+{
+  "name": "heap",
+  "version": "0.1.0",
+  "description": "Javascript implementation of a binary heap data structure",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "istanbul cover -x *.spec.js _mocha -- --reporter spec test/*.js",
+    "posttest": "npm run check-coverage",
+    "lint": "jscs *.js test/*.js && jshint --reporter=node_modules/jshint-stylish *.js test/*.js",
+    "check-coverage": "istanbul check-coverage --statements 80 --branches 80 --functions 80 --lines 80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonsjones/heap.git"
+  },
+  "keywords": [
+    "binary heap",
+    "data structure",
+    "abstract data type"
+  ],
+  "author": "Jason Jones",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonsjones/heap/issues"
+  },
+  "homepage": "https://github.com/jasonsjones/heap",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "istanbul": "^0.4.2",
+    "jscs": "^2.9.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "mocha": "^2.2.4"
+  }
+}
