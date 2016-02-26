@@ -28,8 +28,25 @@
         return result;
     };
 
-    // BinaryHeap.prototype.remove = function (node) {
-    // };
+    BinaryHeap.prototype.remove = function (node) {
+        var length = this.content.length;
+
+        for (var i = 0; i < length; i++) {
+            if (this.content[i] !== node) {
+                continue;
+            }
+
+            var endElement = this.content.pop();
+
+            if (i === length - 1) {
+                break;
+            }
+
+            this.content[i] = endElement;
+            this.bubbleUp(i);
+            this.sinkDown(i);
+        }
+    };
 
     BinaryHeap.prototype.size = function () {
         return this.content.length;
