@@ -7,6 +7,7 @@
 (function() {
     'use strict';
 
+    // Default scoring function.  This function simply returns the value of the element passed in.
     function defaultScoreFn(x) {
         return x;
     }
@@ -17,6 +18,9 @@
      * determine if the instance is a min-heap or a max-heap.  If no scoring function is provided,
      * the heap defaults to a min-heap.
      *
+     * If the heap in intended to store complex objects, the scoring function will need to define
+     * which property of the object will be used to determine the order of the heap.
+     *
      * @constructor
      * @param {Function} scoreFn the function used to determine the correct placement of each
      *                       element in the heap.
@@ -26,6 +30,13 @@
         this.scoreFunction = scoreFn || defaultScoreFn;
     }
 
+    /**
+     * Adds an element to the heap. The element will be added to the bottom of the heap, then it
+     * will bubble up to its correct position in the heap.  This determination will be based on
+     * the scoring function.
+     *
+     * @param {Object|string|number} element the element to add to the heap
+     */
     BinaryHeap.prototype.push = function (element) {
         this.content.push(element);
         this.bubbleUp(this.content.length - 1);
