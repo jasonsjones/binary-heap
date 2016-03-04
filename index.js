@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Implementation of a heap data structure
+ * @author Jason S. Jones
+ * @version 0.1.0
+ * @license MIT
+ */
 (function() {
     'use strict';
 
@@ -5,6 +11,16 @@
         return x;
     }
 
+    /**
+     * Creates a new heap instance utilizing scoreFn as the scoring function to determine
+     * the correct placement of each element in the heap.  The scoring function will be used to
+     * determine if the instance is a min-heap or a max-heap.  If no scoring function is provided,
+     * the heap defaults to a min-heap.
+     *
+     * @constructor
+     * @param {Function} scoreFn the function used to determine the correct placement of each
+     *                       element in the heap.
+     */
     function BinaryHeap(scoreFn) {
         this.content = [];
         this.scoreFunction = scoreFn || defaultScoreFn;
