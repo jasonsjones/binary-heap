@@ -42,6 +42,11 @@
         this.bubbleUp(this.content.length - 1);
     };
 
+    /**
+     * Removes the root element from the heap.
+     *
+     * @returns {Object|string|number} the current root element from the heap
+     */
     BinaryHeap.prototype.pop = function () {
         var result = this.content[0];
 
@@ -55,6 +60,12 @@
         return result;
     };
 
+    /**
+     * Removes an arbitrary element from the heap.  When the element is removed, the heap is
+     * rearranged in order to maintain the heap constraints.  This operation runs in O(n) time.
+     *
+     * @param {Object|string|number} node the element to remove from the heap
+     */
     BinaryHeap.prototype.remove = function (node) {
         var length = this.content.length;
 
@@ -75,6 +86,11 @@
         }
     };
 
+    /**
+     * Returns the number of elements in the heap.
+     *
+     * @param {number} the number of elements in the heap
+     */
     BinaryHeap.prototype.size = function () {
         return this.content.length;
     };
